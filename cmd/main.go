@@ -5,14 +5,20 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/VincentDevi/JobsTrack/internal/view" // Correct import path
+	"github.com/VincentDevi/JobsTrack/internal/handler"
+	"github.com/VincentDevi/JobsTrack/internal/view"
 	"github.com/a-h/templ"
 )
 
 func main() {
+	mux := http.NewServeMux()
 
-	http.Handle("/", templ.Handler(view.Hello()))
+	mux.Handle("/", http.HandlerFunc(handler.NewHomeHandler().ServeHTTP))
+	mux.Handle("/home", templ.Handler(view.Hello()))
 
-	fmt.Println("Server running on port 8080 ")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fileServer := http.FileServer(http.Dir("./static"))
+	mux.Handle("/static/", http.StripPrefix("/static/", fileServer))
+
+	fmt.Println("Server running on port 8080")
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }
