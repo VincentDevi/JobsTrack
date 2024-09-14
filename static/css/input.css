@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    color: #FFFFFFF;
+    line-height: 1;
+}
+
+.bg-gradient {
+	background: linear-gradient(45deg, hsla(46, 15%, 83%, 1) 14%, hsla(82, 20%, 62%, 1) 45%, hsla(119, 19%, 42%, 1) 86%, hsla(150, 20%, 25%, 1) 100%);
+}

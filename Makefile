@@ -16,3 +16,9 @@ templ-generate:
 .PHONY: templ-watch
 templ-watch:
 	templ generate --watch
+
+
+.PHONY: dev
+dev:
+	go build -o ./tmp/main ./cmd/main.go && air
+
