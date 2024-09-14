@@ -1,9 +1,9 @@
 package layout 
 
 
-templ header(title string) {
+templ header() {
 	<head>
-		<title>{ title }</title>
+		<title>Job Tracks</title>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link rel="stylesheet" href="static/css/style.css"/>
@@ -13,13 +13,13 @@ templ header(title string) {
 
 
 
-templ PageLayoutWithTable(content templ.Component,side_panel_content templ.Component, title string ){
+templ PageLayoutWithTable(side_panel_content templ.Component){
 	<html>
-		@header(title)
+		@header()
 		<body class="h-full w-full flex overflow-x-hidden">
-			<aside class="border-r-2 border-dark-green bg-vlight-green w-80 py-4 ">
+			<aside class="border-r-2 border-dark-green w-80 pb-4 ">
 				<nav class="space-y-8">
-					<h1 class="font-extrabold text-2xl text-green text-center border-b-2 border-dark-green pb-2" > JobsTrack </h1>
+					<h1 class="bg-gradient font-extrabold text-2xl text-green text-center border-b-2 border-dark-green py-4" > JobsTrack </h1>
 					<ul class="space-y-4 px-4 ">
 						<li>Home</li>
 						<li>Organisation</li>
@@ -29,7 +29,7 @@ templ PageLayoutWithTable(content templ.Component,side_panel_content templ.Compo
 				</nav>
 			</aside>
 			<main class="h-full grow">
-				@content
+				{children...}	
 			</main>
 			@side_panel_content
 		</body>

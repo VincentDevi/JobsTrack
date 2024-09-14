@@ -1,0 +1,12 @@
+package page
+
+import (
+	"github.com/VincentDevi/JobsTrack/internal/view/layout"
+	"github.com/VincentDevi/JobsTrack/internal/view/ui"
+)
+
+templ OrganisationsPage(){
+	@layout.PageLayoutWithTable(ui.SideClose()){
+		<h3> List of all your organisations</h3>
+	}
+}

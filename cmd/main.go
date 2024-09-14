@@ -11,7 +11,15 @@ import (
 func main() {
 	mux := http.NewServeMux()
 
+	// Home Page
 	mux.Handle("/", http.HandlerFunc(handler.NewHomeHandler().ServeHTTP))
+
+	// Tables Pages
+	mux.Handle("/organisations", http.HandlerFunc(handler.NewOrganisations().ServeHTTP))
+	mux.Handle("/offers", http.HandlerFunc(handler.NewOffers().ServeHTTP))
+	mux.Handle("/messages", http.HandlerFunc(handler.NewMessages().ServeHTTP))
+
+	// Side Panel
 	mux.Handle("/open", http.HandlerFunc(handler.NewHomeHandler().Open))
 	mux.Handle("/close", http.HandlerFunc(handler.NewHomeHandler().Close))
 

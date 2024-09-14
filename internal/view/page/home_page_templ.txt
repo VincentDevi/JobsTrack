@@ -1,0 +1,1 @@
+<h3 class=\"pb-6 text-green text-lg font-bold\">Home Page </h3><p hx-post=\"/open\" hx-target=\"#table_side_panel\" hx-swap=\"outerHTML transition:true\" class=\"px-4 py-2 max-w-48 bg-green hover:bg-dark-green text-white cursor-pointer\">manage side panel</p><div class=\"w-full flex justify-between px-4 text-lg\"><p>right </p><p>left </p></div>

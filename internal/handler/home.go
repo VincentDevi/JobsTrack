@@ -3,32 +3,25 @@ package handler
 import (
 	"net/http"
 
-	"github.com/VincentDevi/JobsTrack/internal/view"
-	"github.com/VincentDevi/JobsTrack/internal/view/layout"
+	"github.com/VincentDevi/JobsTrack/internal/view/page"
+	"github.com/VincentDevi/JobsTrack/internal/view/ui"
 )
 
-type Home struct {
-	title string
-}
+type Home struct{}
 
 func NewHomeHandler() *Home {
-	return &Home{
-		title: "Job Tracks",
-	}
+	return &Home{}
 }
 
 func (h *Home) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	home := NewHomeHandler()
-	c := view.Hello()
-	p := view.SideClose()
-	layout.PageLayoutWithTable(c, p, home.title).Render(r.Context(), w)
+	page.HomePage().Render(r.Context(), w)
 
 }
 
 func (h *Home) Open(w http.ResponseWriter, r *http.Request) {
-	view.SideOpen().Render(r.Context(), w)
+	ui.SideOpen().Render(r.Context(), w)
 }
 
 func (h *Home) Close(w http.ResponseWriter, r *http.Request) {
-	view.SideClose().Render(r.Context(), w)
+	ui.SideClose().Render(r.Context(), w)
 }

@@ -1,0 +1,24 @@
+package ui
+
+
+templ SideOpen(){
+	<div 
+		id="table_side_panel"
+		class="relative right-0 w-96 h-full space-y-4 bg-light-green border-l-2"
+	> 
+	<div class="flex items-center border-b border-white p-4">
+		<p class="grow text-white text-lg font-bold text-center"> wow this is open ! </p>
+		<div 
+			hx-post="/close" 
+			hx-target="#table_side_panel"
+			hx-swap="outerHTML transition:true"
+			class="bg-white hover:bg-vlight-green flex items-center justify-center rounded-full cursor-pointer w-8 h-8">
+			<p class="font-extrabold text-xl text-green "> x </p>
+		</div>
+	</div>
+	</div>
+}
+templ SideClose(){
+	<div id="table_side_panel" class="hidden"> 
+	</div>
+}
