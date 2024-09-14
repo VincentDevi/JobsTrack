@@ -29,7 +29,7 @@ func SideOpen() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"table_side_panel\" class=\"relative right-0 w-96 h-full space-y-4 bg-light-green border-l-2\"><div class=\"flex items-center border-b border-white p-4\"><p class=\"grow text-white text-lg font-bold text-center\">wow this is open ! </p><div hx-post=\"/close\" hx-target=\"#table_side_panel\" hx-swap=\"outerHTML transition:true\" class=\"bg-white hover:bg-vlight-green flex items-center justify-center rounded-full cursor-pointer w-8 h-8\"><p class=\"font-extrabold text-xl text-green \">x </p></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,7 @@ func SideClose() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"table_side_panel\" class=\"hidden\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

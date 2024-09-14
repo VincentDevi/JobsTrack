@@ -1,5 +1,92 @@
 package page
 
-templ MessagesPage(){
-	<h3> List of all your messages</h3>
+import (
+	"github.com/VincentDevi/JobsTrack/internal/view/layout"
+	"github.com/VincentDevi/JobsTrack/internal/view/ui"
+	"github.com/VincentDevi/JobsTrack/internal/model"
+)
+
+templ headerMessage(){
+	<thead class="h-16">
+		<tr class="h-16">
+			<th
+				class="text-base font-normal text-gray-400 text-left"
+				scope="col"
+			>
+				Type
+			</th>
+			<th
+				class="text-base font-normal text-gray-400 "
+				scope="col"
+			>
+				Offer
+			</th>
+			<th
+				class="text-base font-normal text-gray-400 "
+				scope="col"
+			>
+				Organisation
+			</th>
+			<th
+				class="text-base font-normal text-gray-400 "
+				scope="col"
+			>
+				Channel
+			</th>
+			<th
+				class="text-base font-normal text-gray-400 "
+				scope="col"
+			>
+				Created at
+			</th>
+		</tr>
+	</thead>
 }
+
+templ bodyMessage(items []model.MessagesPageElement){
+	<tbody>
+		for _,item := range items {
+			<tr scope="row" class="h-16 border-b-2 border-green hover:bg-vlight-green cursor-pointer">
+				<td
+					hx-swap="outerHTML transition:true"
+					hx-target="#table_side_panel"
+					hx-post="/open"
+					class="py-4 h-16">{item.Message_type}</td>
+				<td
+					class="text-center h-16"
+					hx-target="#table_side_panel"
+					hx-swap="outerHTML transition:true"
+					hx-post="/open" 
+				>{item.Offer}</td>
+				<td
+					hx-target="#table_side_panel"
+					hx-swap="outerHTML transition:true"
+					hx-post="/open"
+					class="text-center h-16">{item.Organisation}</td>
+				<td
+					hx-target="#table_side_panel"
+					hx-swap="outerHTML transition:true"
+					hx-post="/open"
+					class="text-center h-16" >{item.Channel}</td>
+				<td
+					hx-target="#table_side_panel"
+					hx-swap="outerHTML transition:true"
+					hx-post="/open"
+					class="text-center h-16">{item.Created_at}</td>
+			</tr>
+		}
+	</tbody>
+}
+
+templ MessagesPage(items []model.MessagesPageElement){
+	@layout.PageLayoutWithTable(ui.SideClose()){
+		<h3 class="p-4 font-bold text-xl"> List of all your messages</h3>
+		<div class="w-full overflow-auto px-4 ">
+			<table class="w-full">
+				@headerMessage()
+				@bodyMessage(items)
+			</table>
+		</div>
+	}
+}
+

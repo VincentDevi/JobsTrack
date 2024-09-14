@@ -5,8 +5,63 @@ import (
 	"github.com/VincentDevi/JobsTrack/internal/view/ui"
 )
 
+templ headerOrganisation(){
+	<thead>
+		<tr>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				name
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Country
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Language
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Tag
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Messages
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Offers
+			</th>
+		</tr>
+	</thead>
+}
+
+templ bodyOrganisation(){
+	<tbody>
+	</tbody>
+}
+
 templ OrganisationsPage(){
 	@layout.PageLayoutWithTable(ui.SideClose()){
 		<h3> List of all your organisations</h3>
+		<div class="w-full grow overflow-auto">
+			<table class="table-fixed">
+				@headerOrganisation()
+				@bodyOrganisation()
+			</table>
+		</div>
 	}
 }
+

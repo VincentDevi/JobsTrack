@@ -46,7 +46,7 @@ func HomePage() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h3 class=\"pb-6 text-green text-lg font-bold\">Home Page </h3><p hx-post=\"/open\" hx-target=\"#table_side_panel\" hx-swap=\"outerHTML transition:true\" class=\"px-4 py-2 h-4 max-w-48 bg-green hover:bg-dark-green text-white cursor-pointer\">manage side panel</p><div class=\"w-full flex justify-between px-4 text-lg\"><p>right </p><p>left </p></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

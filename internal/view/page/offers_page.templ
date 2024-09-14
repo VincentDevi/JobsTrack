@@ -1,5 +1,62 @@
 package page
 
+import (
+	"github.com/VincentDevi/JobsTrack/internal/view/layout"
+	"github.com/VincentDevi/JobsTrack/internal/view/ui"
+)
+
 templ OffersPage(){
-	<h3> List of all your job offers</h3>
+	@layout.PageLayoutWithTable(ui.SideClose()){
+		<h3> List of all your job offers</h3>
+		<div>
+			<table>
+				@header()
+			</table>
+		</div>
+	}
+}
+
+
+
+templ header(){
+	<thead>
+		<tr>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Organisation
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Remote
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Salary
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Messages
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Created at
+			</th>
+			<th
+				class="text-base font-normal text-gray-500 text-left"
+				scope="col"
+			>
+				Updated at
+			</th>
+		</tr>
+	</thead>
 }
