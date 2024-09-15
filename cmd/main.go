@@ -13,6 +13,7 @@ func main() {
 
 	// Home Page
 	mux.Handle("/", http.HandlerFunc(handler.NewHomeHandler().ServeHTTP))
+	// COmment to test git
 
 	// Tables Pages
 	mux.Handle("/organisations", http.HandlerFunc(handler.NewOrganisations().ServeHTTP))
